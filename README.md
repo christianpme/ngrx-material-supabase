@@ -37,11 +37,6 @@ ng add @ngrx/entity
 npm install @supabase/supabase-js
 
 ng add @angular/material
-```
 
-## Try material schematics
-```
-ng generate @angular/material:address-form <component-name>
-
-
+ng generate environments
 ```

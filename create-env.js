@@ -1,6 +1,9 @@
 const fs = require('fs');
-const targetPathDev = './src/environments/environment.ts';
-const targetPathProd = './src/environments/environment.prod.ts';
+const path = require('path');
+
+const dir = './src/environments';
+const targetPathDev = path.join(dir, 'environment.ts');
+const targetPathProd = path.join(dir, 'environment.prod.ts');
 
 const envConfigFileDev = `
 export const environment = {
@@ -18,7 +21,9 @@ export const environment = {
 };
 `;
 
-fs.writeFile(targetPathDev, envConfigFileDev, function (err) {
+fs.mkdirSync(dir, { recursive: true });
+
+fs.writeFileSync(targetPathDev, envConfigFileDev, function (err) {
   if (err) {
     console.log(err);
   } else {
@@ -26,7 +31,7 @@ fs.writeFile(targetPathDev, envConfigFileDev, function (err) {
   }
 });
 
-fs.writeFile(targetPathProd, envConfigFileProd, function (err) {
+fs.writeFileSync(targetPathProd, envConfigFileProd, function (err) {
   if (err) {
     console.log(err);
   } else {

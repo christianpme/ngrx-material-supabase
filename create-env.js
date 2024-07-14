@@ -2,22 +2,22 @@ const fs = require('fs');
 const path = require('path');
 
 const dir = './src/environments';
-const targetPathDev = path.join(dir, 'environment.ts');
-const targetPathProd = path.join(dir, 'environment.prod.ts');
+const targetPathDev = path.join(dir, 'environment.development.ts');
+const targetPathProd = path.join(dir, 'environment.ts');
 
 const envConfigFileDev = `
 export const environment = {
   production: false,
-  supabaseUrl: '${process.env.SUPABASE_URL}',
-  supabaseKey: '${process.env.SUPABASE_KEY}'
+  SUPABASE_URL: '${process.env.SUPABASE_URL}',
+  SUPABASE_KEY: '${process.env.SUPABASE_KEY}'
 };
 `;
 
 const envConfigFileProd = `
 export const environment = {
   production: true,
-  supabaseUrl: '${process.env.SUPABASE_URL}',
-  supabaseKey: '${process.env.SUPABASE_KEY}'
+  SUPABASE_URL: '${process.env.SUPABASE_URL}',
+  SUPABASE_KEY: '${process.env.SUPABASE_KEY}'
 };
 `;
 

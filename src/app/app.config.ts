@@ -8,13 +8,15 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authReducer } from './core/auth/auth.reducer';
 import { AuthEffects } from './core/auth/auth.effects';
 import { SupabaseService } from './core/supabase.service';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
+    provideAnimations(),
+    provideRouter(routes),
+    SupabaseService,
     provideStore({ auth: authReducer }),
     provideEffects([AuthEffects]), 
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    SupabaseService
-  ]
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
+  ],
 };

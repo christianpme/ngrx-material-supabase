@@ -1,6 +1,6 @@
 // src/app/services/supabase.service.ts
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient, VerifyOtpParams } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -16,8 +16,22 @@ export class SupabaseService {
     );
   }
 
-  signIn(email: string, password: string) {
+  signInWithPassword(email: string, password: string) {
     return this.supabase.auth.signInWithPassword({ email, password });
+  }
+
+  signInWithOtp(email: string) {
+    return this.supabase.auth.signInWithOtp({ 
+      email,
+      options: {
+        // set this to false if you do not want the user to be automatically signed up
+        shouldCreateUser: false
+      }
+    });
+  }
+
+  signInVerifyOtp(params: VerifyOtpParams) {
+    return this.supabase.auth.verifyOtp(params);
   }
 
   signUp(email: string, password: string) {

@@ -19,13 +19,14 @@ export const authReducer = createReducer(
   on(AuthActions.checkAuthState, (state) => ({ ...state, loading: true })),
   on(AuthActions.checkAuthStateSuccess, (state, { user }) => ({ ...state, user, loading: false })),
   on(AuthActions.checkAuthStateFailure, (state, { error }) => ({ ...state, error, loading: false })),
-  on(AuthActions.signIn, AuthActions.signUp, (state) => ({ ...state, loading: true })),
+  on(AuthActions.signInWithPassword, AuthActions.signUp, (state) => ({ ...state, loading: true })),
   on(
-    AuthActions.signInSuccess, 
+    AuthActions.signInWithMagicLinkSuccess,
+    AuthActions.signInWithPasswordSuccess, 
     AuthActions.signUpSuccess, 
     (state, { user }) => ({ ...state, user, loading: false })
   ),
-  on(AuthActions.signInFailure, AuthActions.signUpFailure, (state, { error }) => ({ ...state, error, loading: false })),
+  on(AuthActions.signInWithPasswordFailure, AuthActions.signUpFailure, (state, { error }) => ({ ...state, error, loading: false })),
   on(AuthActions.signOut, (state) => ({ ...state, loading: true })),
   on(AuthActions.signOutSuccess, (state) => ({ ...state, user: null, loading: false })),
   on(AuthActions.signOutFailure, (state, { error }) => ({ ...state, error, loading: false }))

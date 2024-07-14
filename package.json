@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "set-env": "node replace-env.js",
+    "set-env": "node create-env.js",
     "build": "ng build --output-path=dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -7,8 +7,8 @@
     "set-env": "node create-env.js",
     "build": "ng build  --configuration production --output-path=dist",
     "watch": "ng build --watch --configuration production",
-    "test": "ng test",
-    "deploy": "ng deploy --base-href=https://christianpme.github.io/ngrx-material-supabase/ --repo=https://github.com/christianpme/ngrx-material-supabase.git --name=christianpme --email=christianpme.pme@t-online.de"
+    "test": "source .env && echo $REPOSITORY_EMAIL",
+    "deploy": "source .env && ng deploy --base-href=$APP_BASE_HREF --repo=$REPOSITORY_NAME --branch=gh-pages --name=$REPOSITORY_USER --email=$REPOSITORY_EMAIL"
   },
   "private": true,
   "dependencies": {

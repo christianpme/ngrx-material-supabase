@@ -46,7 +46,7 @@ jobs:
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
       - name: Deploy to GitHub Pages
-        run: ngh --dir=dist
+        run: npm run deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -5,9 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "set-env": "node create-env.js",
-    "build": "ng build --output-path=dist",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "ng build  --configuration production --output-path=dist",
+    "watch": "ng build --watch --configuration production",
+    "test": "ng test",
+    "deploy": "ng deploy --base-href=https://christianpme.github.io/ngrx-material-supabase/ --repo=https://github.com/christianpme/ngrx-material-supabase.git --name=christianpme --email=christianpme.pme@t-online.de"
   },
   "private": true,
   "dependencies": {
